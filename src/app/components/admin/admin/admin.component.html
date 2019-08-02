@@ -1,0 +1,50 @@
+<div class="container">
+
+    <h2>users</h2>
+
+    <table class="table">
+        <thead>
+
+            <th>nom</th>
+            <th>prenom</th>
+            <th>etat</th>
+            <th>action</th>
+
+
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of clients">
+                <td>{{ user.nom }}</td>
+                <td>{{ user.prenom}}</td>
+                <td>
+                    <div>
+                        <span *ngIf="user.etat =='active'" class="badge badge-success">Success</span>
+                        <span *ngIf="user.etat =='desactive'" class="badge badge-danger">Danger</span>
+
+                    </div>
+                </td>
+                <td>
+
+                    <div>
+                        <button *ngIf="user.etat =='desactive'" type="button" class="btn btn-success"
+                            (click)="activerUser(user)">active</button>
+                        <button *ngIf="user.etat =='active'" type="button" class="btn btn-danger"
+                            (click)="activerUser(user)">Descativer</button>
+
+                    </div>
+
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+
+
+
+
+
+
+</div>

@@ -1,1 +1,32 @@
-<p>connect works!</p>
+<div class="container">
+    <form [formGroup]="connForm" (ngSubmit)="connection()">
+  
+  
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="Enter email" name="email" formControlName="email">
+        <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+          <div *ngIf="email.errors.required">
+            le champ email est obligatoire !
+          </div>
+          <div *ngIf="email.errors.email">
+            le email est invalid !
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pass"
+          formControlName="pass">
+        <div class="alert alert-danger" *ngIf="pass.touched && pass.invalid">
+          <div *ngIf="pass.errors.required">
+            le mdp est obligatoire !
+          </div>
+  
+        </div>
+      </div>
+  
+      <input type="submit" class="btn btn-primary" value="connection" [disabled]="connForm.invalid">
+    </form>
+  </div>

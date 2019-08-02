@@ -1,1 +1,89 @@
-<p>product-add works!</p>
+<div class="container col-mt-10">
+        <form [formGroup]="addProdForm" (ngSubmit)="addProduct()">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label >product Name</label>
+              <input type="text" class="form-control" name="productName" formControlName="productName">
+              <div class="alert alert-danger" *ngIf="pName.touched && pName.invalid">
+                <div *ngIf="pName.errors.required">
+                  le champ nom est obligatoire !
+                </div>
+               
+               
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label >product discription</label>
+              <select class="browser-default custom-select" name="productDisc" formControlName="productDisc">
+                  <option selected value="Accessories">Accessories</option>
+                  <option value="Clothes">Clothes<option>
+                  <option value="Foot Wear">Foot Wear</option>
+                </select>
+            
+              <div class="alert alert-danger" *ngIf="pDisc.touched && pDisc.invalid">
+                <div *ngIf="pDisc.errors.required">
+                  le champ desc est obligatoire !
+                </div>
+              
+              </div>
+            </div>
+          </div>
+      
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label >product quantity</label>
+              <input type="number" class="form-control" name="productQuantity" formControlName="productQuantity">
+              <div class="alert alert-danger" *ngIf="pQtt.touched && pQtt.invalid">
+                <div *ngIf="pQtt.errors.required">
+                  le champ quantite est obligatoire !
+                </div>
+      
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">product price</label>
+              <input type="number" class="form-control" name="productPrice" formControlName="productPrice">
+              <div class="alert alert-danger" *ngIf="pPrice.touched && pPrice.invalid">
+                <div *ngIf="pPrice.errors.required">
+                  le champ prix est obligatoire !
+                </div>
+      
+              </div>
+            </div>
+          </div>
+      
+        
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">couleur</label>
+              <input type="text" class="form-control" name="productColor" formControlName="productColor">
+              <div class="alert alert-danger" *ngIf="pColor.touched && pColor.invalid">
+                <div *ngIf="pColor.errors.required">
+                  le champ taille est obligatoire !
+                </div>
+                <div *ngIf="pColor.errors.pattern">
+                  le champ taille est invalid !
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">photo</label>
+              <input type="file"  accept="image/*" class="form-control" name="productPic" formControlName="productPic" (change)=" onFileSelected($event)">
+             
+      
+              <div class="alert alert-danger" *ngIf="pPic.touched && pPic.invalid">
+                <div *ngIf="pPic.errors.required">
+                  le champ photo est obligatoire !
+                </div>
+                </div>
+      
+             
+      
+              
+            </div>
+          </div>
+      
+          <input type="submit" class="btn btn-info" value="Info" >
+      
+        </form>
+      </div>

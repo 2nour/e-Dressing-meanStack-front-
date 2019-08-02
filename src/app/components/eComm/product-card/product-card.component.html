@@ -1,0 +1,26 @@
+<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12" *ngFor="let product of products">
+<div >
+<div class="product-card">
+  <div class="col-12 p-0">
+    <img [src]="product.productPic"  class="img-responsive" width="100%" height="100%" />
+  </div>
+  <div class="col-12 p-3">
+    <div class="row pc-content">
+      <div class="col-12">
+        <h4>{{product.productName}}</h4>
+        <h6 class="text-uppercase">{{product.productDisc}}</h6>
+      </div>
+    </div>
+    <div class="row pc-footer">
+      <div class="col-6">
+        
+        <h4>{{product.productPrice}} €</h4>
+      </div>
+      <div class="col-6">
+        <img [src]="product.isFavorite ? heartRedImgPath : heartImgPath" alt="Add to favorites" class="heart" (click)="favorite(product)" />
+        <img [src]="product.inCart ? cartBlueImgPath : cartImgPath" alt="Add to cart" class="cart" (click)="cart(product)" />
+      </div>
+    </div>
+  </div>
+</div>
+</div>

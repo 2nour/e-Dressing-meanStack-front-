@@ -1,1 +1,105 @@
-<p>home works!</p>
+<!-- Page Content -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">e-Dressing</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active"(click)="getCategory('Clothes')">Clothes</a>
+        <a class="nav-item nav-link" (click)="getCategory('Accessories')">Accessories</a>
+        <a class="nav-item nav-link" (click)="getCategory('Foot Wear')">FootWear</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="col-lg-9"></div>
+<div class="container" >
+
+  
+    <!-- <div class="col-lg-9">
+
+        <div class="row my-4" *ngFor="let product of products">
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img [src]="product.productPic" ></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">{{product.productName}}</a>
+                </h4>
+                <h5>{{product.productPrice}}</h5>
+                <p class="card-text">{{product.productDisc}}
+                </p>
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-secondary btn-block"> Add to Cart </button>
+                <div class="row no-gutters">
+                  <div class="col-2">
+                    <button class="btn btn-secondary btn-block">-</button>
+                  </div>
+                  <div class="col text-center">
+                    0
+                  </div>
+                  <div class="col-2">
+                    <button class="btn btn-secondary btn-block">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+         
+        </div>
+        < /.row 
+
+              </div> -->
+
+
+    <!-- /.col-lg-9 -->
+    <div class="row">
+    <div class="col-lg-4 col-md-12" *ngFor="let prod of products;let j=index">
+
+      <!--Card-->
+      <div class="card">
+
+
+        <div class="col-lg-20 col-md-12 mb-10">
+          <div class="card h-10">
+            <a href="#"><img class="card-img-top" [src]="products[j].productPic" width="100" height="350" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">{{ prod.productName }}</a>
+              </h4>
+              <h5>{{ prod.productPrice }}</h5>
+              <p class="card-text">{{ prod.productDisc }}
+              </p>
+            </div>
+            <div class="card-footer">
+
+              <div class="row no-gutters">
+                <div class="col-2"> <img [src]="cartImgPath" alt="Add to cart" class="cart" (click)="cart(prod) " />
+                </div>
+
+
+            </div>
+
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+        <!-- /.container -->
+        <!-- Footer
+  
+   <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    /.container -->

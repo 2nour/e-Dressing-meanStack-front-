@@ -1,1 +1,107 @@
-<p>subscribe works!</p>
+
+<div class="container span6">
+
+    <form [formGroup]="subsform" (ngSubmit)="inscription()">
+  
+      <div class="row span6">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="First name" name="prenom" formControlName="prenom">
+          <div class="alert alert-danger" *ngIf="prenom.touched && prenom.invalid">
+            <div *ngIf="prenom.errors.required">
+              le champ nom est obligatoire !
+            </div>
+            <div *ngIf="prenom.errors.pattern">
+              le champ nom est invalid !
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Last name" name="nom" formControlName="nom">
+          <div class="alert alert-danger" *ngIf="nom.touched && nom.invalid">
+            <div *ngIf="nom.errors.required">
+              le champ nom est obligatoire !
+            </div>
+            <div *ngIf="nom.errors.pattern">
+              le champ nom est invalid !
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Email</label>
+          <input type="email" class="form-control" id="inputEmail4" placeholder="Email" name="email"
+            formControlName="email"  [(ngModel)]="client.email">
+          <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+  
+            <div *ngIf="email.errors.required">
+              l'email est obligatoire !
+            </div>
+            <div *ngIf="email.errors.email">
+              le champ email est invalid !
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Telephone</label>
+          <input type="text" class="form-control" name="tel" formControlName="tel">
+          <div class="alert alert-danger" *ngIf="tel.touched && tel.invalid"  >
+  
+            <div *ngIf="tel.errors.required">
+              le champ tel est obligatoire !
+            </div>
+            <div *ngIf="tel.errors.pattern">
+              tel invalid!
+            </div>
+            <div *ngIf="tel.errors.minlength">
+              min 8 chif !
+            </div>
+           
+  
+  
+          </div>
+        </div>
+  
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Password</label>
+  
+  
+          <input type="password" class="form-control"placeholder="Password" name="motDePass"
+            formControlName="motDePass" >
+          <div class="alert alert-danger" *ngIf="pass.touched && pass.invalid">
+  
+            <div *ngIf="pass.errors.required">
+              le champ tel est obligatoire !
+            </div>
+            <div *ngIf="pass.errors.minlength">
+              min 8 chif !
+            </div>
+  
+  
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Confirm Password</label>
+          <input type="password" class="form-control"placeholder="Password" name="ReMotDePass"
+            formControlName="ReMotDePass">
+          <div class="alert alert-danger" *ngIf="confirmPass.touched && confirmPass.invalid">
+  
+            <div *ngIf="confirmPass.errors.required">
+              le champ tel est obligatoire !
+            </div>
+  
+  
+  
+  
+          </div>
+        </div>
+  
+  
+      </div>
+      <input class="btn btn-primary" type="submit" value="next" [disabled]="subsform.invalid">
+  
+    </form>
+  </div>
